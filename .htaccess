@@ -1,3 +1,22 @@
 RewriteEngine On
-Options All -Indexes
-RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1
+RewriteBase /SistemaVentaPhp/
+
+
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Configuración de PHP
+php_value session.cookie_lifetime 0
+php_value session.gc_maxlifetime 3600
+php_value session.use_strict_mode 1
+php_value session.use_cookies 1
+php_value session.use_only_cookies 1
+php_value session.cookie_secure 1
+php_value session.cookie_httponly 1
+php_value session.cookie_samesite "Strict"
+
+# Reglas de redirección
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?views=$1 [L,QSA]
