@@ -20,7 +20,7 @@
 		  	<div class="column">
 		    	<div class="control">
 					<label>Ubicación</label>
-				  	<input class="input" type="text" name="categoria_ubicacion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{5,150}" maxlength="150" >
+				  	<input class="input" type="text" name="categoria_ubicacion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ._]{5,150}" maxlength="150" >
 				</div>
 		  	</div>
 		</div>
